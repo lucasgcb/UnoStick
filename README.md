@@ -2,7 +2,7 @@
 A funny toy for my microcontrollers class. May have some latency, needs testing!
 ## Slow Installation (no script yet)
 ### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore them.
- 0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems.
+ 0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems - you could try the Restoration steps below.
 
  1 - Use AVRDUDES to program the 328p with the [BotoesUART.hex](https://github.com/lucasgcb/UnoStick/blob/master/328p/BotoesUART/BotoesUART/Release/BotoesUART.hex) file. 
 
@@ -31,7 +31,7 @@ __Do not connect anything to Digital 0 or 1__, these are the UART communication 
 
  1 - Enable DFU mode on your Arduino. This should also disable the controller.
 
- 2 - Use the DFU programmer to erase the memory and then flash `Arduino-usbserial-uno.hex` onto the ATmega16U2. You may also find this file in your Arduino IDE `/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial` folder. [I've added it to the Firmware folder of this repository for convenience](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Arduino-usbserial-uno.hex).
+ 2 - Use the DFU programmer to erase the memory and then flash `Arduino-usbserial-uno.hex` onto the ATmega16U2. You may also find this file in your Arduino IDE `/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial` folder. [I've added mine to the Firmware folder of this repository for convenience](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Arduino-usbserial-uno.hex).
 
  3 - Power Cycle the whole thing by unplugging, waiting, and replugging the USB cable.
 
