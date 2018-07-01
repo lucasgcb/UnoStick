@@ -1,7 +1,7 @@
 # UnoStick / Stickzao
 
 ## Slow Installation (no script yet)
-### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough.
+### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore it.
  0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems.
 
  1 - Use AVRDUDES to program the 328p with the BotoesUART.hex file. 
