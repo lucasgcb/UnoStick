@@ -39,8 +39,11 @@ __Do not connect anything to Digital 0 or 1__, these are the UART communication 
 ## Cool Links
 
 [Arduino UNO Rev3's Schematic](https://www.arduino.cc/en/uploads/Main/Arduino_Uno_Rev3-schematic.pdf)
+
 [Andrew Mao's class blog post on ATmega16u2 programming + LUFA](http://fab.cba.mit.edu/classes/863.14/people/andrew_mao/week11/)
+
 [LUFA's homepage. If you use Atmel Studio, download it off their extensions list!](http://www.fourwalledcubicle.com/LUFA.php)
-[A picture of a cat to give you strength](https://cdn.discordapp.com/attachments/395207473432363009/434162134486876181/ay.png)
+
+[A picture of boxcat to give you strength](https://cdn.discordapp.com/attachments/395207473432363009/434162134486876181/ay.png)
  
  
