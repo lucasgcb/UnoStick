@@ -4,7 +4,7 @@
 ### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore it.
  0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems.
 
- 1 - Use AVRDUDES to program the 328p with the BotoesUART.hex file. 
+ 1 - Use AVRDUDES to program the 328p with the [BotoesUART.hex](https://github.com/lucasgcb/UnoStick/blob/master/328p/BotoesUART/BotoesUART/Release/BotoesUART.hex) file. 
 
 The command usually looks like this; and you may retrieve a more accurate depiction of it for your environment by activating Verbose mode on the Arduino platform while uploading a sketch:
 >avrdude.exe `"-CC:\Program Files (x86)\Arduino\hardware\tools\avr/etc/avrdude.conf" -v -patmega328p -carduino -PCOM3 -b115200 -D -Uflash:w:"$(ProjectDir)Release\BotoesUART.hex":i`
@@ -16,7 +16,7 @@ The command usually looks like this; and you may retrieve a more accurate depict
 
  3 - Acquire Microchip's [FLIP](http://www.microchip.com/Developmenttools/ProductDetails/FLIP) , or dfu-programmer for erasing and programming the ATmega16U2
 
- 4 - With your DFU programmer, Program the ATmega16U2 with [Joystickzao.hex](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Stickzao/ExemploKB/Release/Joystickzao.hex)
+ 4 - With your DFU programmer, Erase and Flash the ATmega16U2 with [Joystickzao.hex](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Stickzao/ExemploKB/Release/Joystickzao.hex)
 
  5 - Power Cycle the whole thing by unplugging, waiting, and replugging the USB cable.
 
@@ -47,4 +47,4 @@ __Do not connect anything to Digital 0 or 1__, these are the UART communication 
 
  - [Picture of boxcat to give you strength](https://cdn.discordapp.com/attachments/395207473432363009/434162134486876181/ay.png)
  
- 
+ ### Connection Shield coming soon!
