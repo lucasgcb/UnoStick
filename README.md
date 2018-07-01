@@ -1,5 +1,5 @@
 # UnoStick / Stickzao
-
+A funny toy for my microcontrollers class. May have some latency, needs testing!
 ## Slow Installation (no script yet)
 ### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore them.
  0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems.
