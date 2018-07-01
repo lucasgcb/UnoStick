@@ -13,6 +13,7 @@ The command usually looks like this; and you may retrieve a more accurate depict
 
 ![Arduino DFU](http://2.bp.blogspot.com/-3NUsmpZn3CU/UjAZu5yS9BI/AAAAAAAADfQ/Xekuk1jNh4Y/s320/ArduinoUno_R3_Front_450px.jpg)
 >taken from: http://bartruffle.blogspot.com/2013/09/dfu-programming-atmega16u2-on-arduino.html
+
  3 - Acquire Microchip's [FLIP](http://www.microchip.com/Developmenttools/ProductDetails/FLIP) , or dfu-programmer for erasing and programming the ATmega16U2
 
  4 - With your DFU programmer, Program the ATmega16U2 with [Joystickzao.hex](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Stickzao/ExemploKB/Release/Joystickzao.hex)
