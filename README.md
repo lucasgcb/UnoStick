@@ -24,7 +24,7 @@ The command usually looks like this; and you may retrieve a more accurate depict
 
  7 - Insert stick connections in Digital 2 to 5. 
 
-__Do not connect anything to Digital 0 or 1__, these are the UART communication ports between both controllers and any extra connections here will make controller unstable.
+__Do not connect anything to Digital 0 or 1__, these are the UART communication ports between both controllers and any extra connections here will make the controller unstable.
 
 ## Restoring Arduino
  0 - Yes, you'll have to go through a few extra steps to uninstall this. Plug the board.
