@@ -99,7 +99,7 @@
 		#define __INCLUDE_FROM_JOYSTICK_H
 
 	/* Includes: */
-		#include "../../Common/Common.h"
+		#include <LUFA/Common/Common.h>
 
 		#if (BOARD == BOARD_NONE)
 			#define JOY_UP           0
@@ -132,6 +132,6 @@
 	#endif
 
 #endif
-
+#endif
 /** @} */
 

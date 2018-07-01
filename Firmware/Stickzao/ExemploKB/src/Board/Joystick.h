@@ -110,7 +110,7 @@
 			static inline void       Joystick_Init(void) {}
 			static inline void       Joystick_Disable(void) {}
 			static inline uint_reg_t Joystick_GetStatus(void) { return 0; }
-
+		#endif
 	/* Pseudo-Functions for Doxygen: */
 	#if defined(__DOXYGEN__)
 		/** Initializes the joystick driver so that the joystick position can be read. This sets the appropriate

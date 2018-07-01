@@ -33,14 +33,6 @@
 		#include <stdbool.h>
 		#include <string.h>
 
-static inline void Buttons_Init(void)
-{
-    // Initialize the appropriate port pins as an inputs here, with pull-ups
-    // See Atmel doc 7799, section 12.2.3
-    DDRB &= ~BUTTONS_ALL;
-    PORTB |= BUTTONS_ALL;
-}
-
 static inline void Buttons_Disable(void)
 {
     // Clear the appropriate port pins as high impedance inputs here
@@ -52,7 +44,7 @@ static inline uint8_t Buttons_GetStatus(void)
 
 {
 	uint8_t STATUS = 0x3f;
-	USART_Transmit('B');
+	USART_Transmit('B'); // Pedir pelos botões
 	 uint16_t i=50000;
 
 	 //bloco de timeout
@@ -62,9 +54,6 @@ static inline uint8_t Buttons_GetStatus(void)
 	 }while(--i);
 	
 	STATUS = STATUS ^ 0x3f;
-    // Return current button status here, debounced if required
-    //return ((_BUTTON_STATUS) ^ 0x3f);
-		// Return current button status here, debounced if required
 	return (STATUS);
 }
 
@@ -78,7 +67,7 @@ static inline uint8_t Stick_GetStatus(void)
 
 {
 		uint8_t STATUS = 0xfc;
-		USART_Transmit('J');
+		USART_Transmit('J'); //Pedir pela posicao do joystick
 		uint16_t i=50000;
 
 		//bloco de timeout
@@ -88,8 +77,5 @@ static inline uint8_t Stick_GetStatus(void)
 				}while(--i);
 
 		STATUS = STATUS ^ 0xfc;
-		// Return current button status here, debounced if required
-		//return ((_BUTTON_STATUS) ^ 0x3f);
-		// Return current button status here, debounced if required
 		return (STATUS);
 }

@@ -1,13 +1,13 @@
 /*
              LUFA Library
-     Copyright (C) Dean Camera, 2017.
+     Copyright (C) Dean Camera, 2018.
 
   dean [at] fourwalledcubicle [dot] com
            www.lufa-lib.org
 */
 
 /*
-  Copyright 2017  Dean Camera (dean [at] fourwalledcubicle [dot] com)
+  Copyright 2018  Dean Camera (dean [at] fourwalledcubicle [dot] com)
 
   Permission to use, copy, modify, distribute, and sell this
   software and its documentation for any purpose is hereby granted
@@ -50,10 +50,10 @@
 		{
 			USB_Descriptor_Configuration_Header_t Config;
 
-			// Keyboard HID Interface
+			// Joystick HID Interface
 			USB_Descriptor_Interface_t            HID_Interface;
-			USB_HID_Descriptor_HID_t              HID_KeyboardHID;
-			USB_Descriptor_Endpoint_t             HID_ReportINEndpoint;
+			USB_HID_Descriptor_HID_t              HID_JoystickHID;
+	        USB_Descriptor_Endpoint_t             HID_ReportINEndpoint;
 		} USB_Descriptor_Configuration_t;
 
 		/** Enum for the device interface descriptor IDs within the device. Each interface descriptor
@@ -62,7 +62,7 @@
 		 */
 		enum InterfaceDescriptors_t
 		{
-			INTERFACE_ID_Keyboard = 0, /**< Keyboard interface descriptor ID */
+			INTERFACE_ID_Joystick = 0, /**< Joystick interface desciptor ID */
 		};
 
 		/** Enum for the device string descriptor IDs within the device. Each string descriptor should
@@ -77,11 +77,11 @@
 		};
 
 	/* Macros: */
-		/** Endpoint address of the Keyboard HID reporting IN endpoint. */
-		#define KEYBOARD_EPADDR              (ENDPOINT_DIR_IN | 1)
+		/** Endpoint address of the Joystick HID reporting IN endpoint. */
+		#define JOYSTICK_EPADDR              (ENDPOINT_DIR_IN | 1)
 
-		/** Size in bytes of the Keyboard HID reporting IN endpoint. */
-		#define KEYBOARD_EPSIZE              8
+		/** Size in bytes of the Joystick HID reporting IN endpoint. */
+		#define JOYSTICK_EPSIZE              8
 
 	/* Function Prototypes: */
 		uint16_t CALLBACK_USB_GetDescriptor(const uint16_t wValue,
@@ -90,4 +90,3 @@
 		                                    ATTR_WARN_UNUSED_RESULT ATTR_NON_NULL_PTR_ARG(3);
 
 #endif
-

@@ -20,7 +20,7 @@ Keyboard.d Keyboard.o: .././Keyboard.c .././bits.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- ../Board/LDriver.h .././Keyboard.h .././Descriptors.h \
+ ../Board/LDriver.h .././Joystick.h .././Descriptors.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  ../src/LUFA/LUFA/Drivers/USB/USB.h \
  ../src/LUFA/LUFA/Drivers/USB/../../Common/Common.h \
@@ -119,10 +119,11 @@ Keyboard.d Keyboard.o: .././Keyboard.c .././bits.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/RNDISClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/Device/../Common/CDCClassCommon.h \
  ../src/LUFA/LUFA/Drivers/USB/Class/StillImageClass.h \
- ../src/LUFA/LUFA/Drivers/Board/LEDs.h \
- ../src/LUFA/LUFA/Drivers/Board/../../Common/Common.h ../src/Board/LEDs.h \
- ../src/LUFA/LUFA/Drivers/Board/Buttons.h ../src/Board/Buttons.h \
- ../src/LUFA/LUFA/Platform/Platform.h \
+ ../src/LUFA/LUFA/Drivers/Board/Joystick.h \
+ ../src/LUFA/LUFA/Drivers/Board/../../Common/Common.h \
+ ../src/Board/Joystick.h ../src/LUFA/LUFA/Drivers/Board/LEDs.h \
+ ../src/Board/LEDs.h ../src/LUFA/LUFA/Drivers/Board/Buttons.h \
+ ../src/Board/Buttons.h ../src/LUFA/LUFA/Platform/Platform.h \
  ../src/LUFA/LUFA/Platform/../Common/Common.h
 
 .././bits.h:
@@ -175,7 +176,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../Board/LDriver.h:
 
-.././Keyboard.h:
+.././Joystick.h:
 
 .././Descriptors.h:
 
@@ -375,9 +376,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../src/LUFA/LUFA/Drivers/USB/Class/StillImageClass.h:
 
-../src/LUFA/LUFA/Drivers/Board/LEDs.h:
+../src/LUFA/LUFA/Drivers/Board/Joystick.h:
 
 ../src/LUFA/LUFA/Drivers/Board/../../Common/Common.h:
+
+../src/Board/Joystick.h:
+
+../src/LUFA/LUFA/Drivers/Board/LEDs.h:
 
 ../src/Board/LEDs.h:
 

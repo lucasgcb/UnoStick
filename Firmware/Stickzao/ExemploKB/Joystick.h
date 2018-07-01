@@ -1,13 +1,13 @@
 /*
              LUFA Library
-     Copyright (C) Dean Camera, 2017.
+     Copyright (C) Dean Camera, 2018.
 
   dean [at] fourwalledcubicle [dot] com
            www.lufa-lib.org
 */
 
 /*
-  Copyright 2017  Dean Camera (dean [at] fourwalledcubicle [dot] com)
+  Copyright 2018  Dean Camera (dean [at] fourwalledcubicle [dot] com)
 
   Permission to use, copy, modify, distribute, and sell this
   software and its documentation for any purpose is hereby granted
@@ -30,26 +30,38 @@
 
 /** \file
  *
- *  Header file for Keyboard.c.
+ *  Header file for Joystick.c.
  */
 
-#ifndef _KEYBOARD_H_
-#define _KEYBOARD_H_
+#ifndef _JOYSTICK_H_
+#define _JOYSTICK_H_
 
 	/* Includes: */
 		#include <avr/io.h>
 		#include <avr/wdt.h>
 		#include <avr/power.h>
 		#include <avr/interrupt.h>
-		#include <stdbool.h>
 		#include <string.h>
 
 		#include "Descriptors.h"
 
+		#include <LUFA/Drivers/Board/Joystick.h>
 		#include <LUFA/Drivers/Board/LEDs.h>
 		#include <LUFA/Drivers/Board/Buttons.h>
 		#include <LUFA/Drivers/USB/USB.h>
 		#include <LUFA/Platform/Platform.h>
+
+	/* Type Defines: */
+		/** Type define for the joystick HID report structure, for creating and sending HID reports to the host PC.
+		 *  This mirrors the layout described to the host in the HID report descriptor, in Descriptors.c.
+		 */
+		typedef struct
+		{
+			int8_t  X; /**< Current absolute joystick X position, as a signed 8-bit integer */
+			int8_t  Y; /**< Current absolute joystick Y position, as a signed 8-bit integer */
+			int8_t  Z; /**< Current absolute joystick Z position, as a signed 8-bit integer */
+			uint8_t Button; /**< Bit mask of the currently pressed joystick buttons */
+		} USB_JoystickReport_Data_t;
 
 	/* Macros: */
 		/** LED mask for the library LED driver, to indicate that the USB interface is not ready. */
@@ -85,4 +97,3 @@
 		                                          const uint16_t ReportSize);
 
 #endif
-

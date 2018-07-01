@@ -28,41 +28,35 @@
   this software.
 */
 
-/** \file
- *
- *  Main source file for the Keyboard demo. This file contains the main tasks of
- *  the demo and is responsible for the initial application hardware configuration.
- */
- 
  #include "bits.h"
  #include "uart.h"
  #include "uart.c"
 #include "BDriver.h"
 #include "LDriver.h"
-#include "Keyboard.h"
+#include "Joystick.h"
 
 /** Buffer to hold the previously generated Keyboard HID report, for comparison purposes inside the HID class driver. */
-static uint8_t PrevKeyboardHIDReportBuffer[sizeof(USB_KeyboardReport_Data_t)];
+static uint8_t PrevJoystickHIDReportBuffer[sizeof(USB_JoystickReport_Data_t)];
 
 /** LUFA HID Class driver interface configuration and state information. This structure is
  *  passed to all HID Class driver functions, so that multiple instances of the same class
  *  within a device can be differentiated from one another.
  */
-USB_ClassInfo_HID_Device_t Keyboard_HID_Interface =
+USB_ClassInfo_HID_Device_t Joystick_HID_Interface =
+{
+	.Config =
 	{
-		.Config =
-			{
-				.InterfaceNumber              = INTERFACE_ID_Keyboard,
-				.ReportINEndpoint             =
-					{
-						.Address              = KEYBOARD_EPADDR,
-						.Size                 = KEYBOARD_EPSIZE,
-						.Banks                = 1,
-					},
-				.PrevReportINBuffer           = PrevKeyboardHIDReportBuffer,
-				.PrevReportINBufferSize       = sizeof(PrevKeyboardHIDReportBuffer),
-			},
-	};
+		.InterfaceNumber              = INTERFACE_ID_Joystick,
+		.ReportINEndpoint             =
+		{
+			.Address              = JOYSTICK_EPADDR,
+			.Size                 = JOYSTICK_EPSIZE,
+			.Banks                = 1,
+		},
+		.PrevReportINBuffer           = PrevJoystickHIDReportBuffer,
+		.PrevReportINBufferSize       = sizeof(PrevJoystickHIDReportBuffer),
+	},
+};
 
 
 /** Main program entry point. This routine contains the overall program flow, including initial
@@ -75,7 +69,7 @@ int main(void)
 	GlobalInterruptEnable();
 	for (;;)
 	{
-		HID_Device_USBTask(&Keyboard_HID_Interface);
+		HID_Device_USBTask(&Joystick_HID_Interface);
 		USB_USBTask();
 	}
 }
@@ -104,7 +98,6 @@ void SetupHardware()
 
 	/* Hardware Initialization */
 	LEDs_Init();
-	Buttons_Init();
 	USB_Init();
 	initUart();
 
@@ -127,7 +120,7 @@ void EVENT_USB_Device_ConfigurationChanged(void)
 {
 	bool ConfigSuccess = true;
 
-	ConfigSuccess &= HID_Device_ConfigureEndpoints(&Keyboard_HID_Interface);
+	ConfigSuccess &= HID_Device_ConfigureEndpoints(&Joystick_HID_Interface);
 
 	USB_Device_EnableSOFEvents();
 
@@ -137,13 +130,13 @@ void EVENT_USB_Device_ConfigurationChanged(void)
 /** Event handler for the library USB Control Request reception event. */
 void EVENT_USB_Device_ControlRequest(void)
 {
-	HID_Device_ProcessControlRequest(&Keyboard_HID_Interface);
+	HID_Device_ProcessControlRequest(&Joystick_HID_Interface);
 }
 
 /** Event handler for the USB device Start Of Frame event. */
 void EVENT_USB_Device_StartOfFrame(void)
 {
-	HID_Device_MillisecondElapsed(&Keyboard_HID_Interface);
+	HID_Device_MillisecondElapsed(&Joystick_HID_Interface);
 }
 
 /** HID class driver callback function for the creation of HID reports to the host.
@@ -162,33 +155,62 @@ bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDIn
                                          void* ReportData,
                                          uint16_t* const ReportSize)
 {
-	USB_KeyboardReport_Data_t* KeyboardReport = (USB_KeyboardReport_Data_t*)ReportData;
-	uint8_t ButtonStatus_LCL = ButtonsKB_GetStatus();
+		USB_JoystickReport_Data_t* JoystickReport = (USB_JoystickReport_Data_t*)ReportData;
+	//uint8_t ButtonStatus_LCL = ButtonsKB_GetStatus();
 	uint8_t  _BUTTON_STATUS = Buttons_GetStatus();
 	uint8_t  _STICK_STATUS = Stick_GetStatus();
-	//Joystick parado: fc 
-	//Botao parado: 3f (111 111)
+
+	//Joystick Neutral: fc 
+	//Botao Neutral: 3f (111 111)
 	//Realiza XOR com o retorno do 328p e o valor parado
 	// STATUS = (111 110) XOR (111 111)
 	// Verifica se o botão foi pressionado -> 
 	// STATUS & BOTAO
-	uint8_t UsedKeyCodes = 0;
-	if (ButtonStatus_LCL & BUTTONS_BUTTON1)
-	KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_A;
+	/*if (ButtonStatus_LCL & BUTTONS_BUTTON1)
+	KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_A;*/
+	
+	
+	if (_STICK_STATUS & (1<<UP))
+		JoystickReport->Y =  100;
+
+	if (_STICK_STATUS & (1<<DOWN))
+		JoystickReport->Y =  -100;
+
+	if (_STICK_STATUS & (1<<LEFT))
+		JoystickReport->X =  -100;
 
 	if (_STICK_STATUS & (1<<RIGHT))
-	KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_F;
+		JoystickReport->X =  100;
+
+	if (_STICK_STATUS & (1<<START))
+		JoystickReport->Button |= (1 << START);
+
+	if (_STICK_STATUS & (1<<HOME))
+		JoystickReport->Button |= (1 << HOME);
+
+	if (_BUTTON_STATUS & (1<<LP))
+	JoystickReport->Button |= (1 << LP);
+
+	if (_BUTTON_STATUS & (1<<MP))
+	JoystickReport->Button |= (1 << MP);
+
+	if (_BUTTON_STATUS & (1<<HP))
+	JoystickReport->Button |= (1 << HP);
 	
   	if (_BUTTON_STATUS & (1<<LK))
-  	KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_B;
+  		JoystickReport->Button |= (1 << LK);
 
-	if (ButtonStatus_LCL & BUTTONS_BUTTON2)
-	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_C;
+	if (_BUTTON_STATUS & (1<<MK))
+		JoystickReport->Button |= (1 << MK);
 
-	if (UsedKeyCodes)
-	KeyboardReport->Modifier = HID_KEYBOARD_MODIFIER_LEFTSHIFT;
+	if (_BUTTON_STATUS & (1<<HK))
+		JoystickReport->Button |= (1 << HK);
 
-	*ReportSize = sizeof(USB_KeyboardReport_Data_t);
+	/*if (ButtonStatus_LCL & BUTTONS_BUTTON2)
+	  KeyboardReport->KeyCode[UsedKeyCodes++] = HID_KEYBOARD_SC_C;*/
+
+
+	*ReportSize = sizeof(USB_JoystickReport_Data_t);
 	return false;
 }
 /** HID class driver callback function for the processing of HID reports from the host.
