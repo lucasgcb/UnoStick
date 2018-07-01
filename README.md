@@ -1,5 +1,5 @@
 # UnoStick / Stickzao
-A funny toy for my microcontrollers class. May have some latency, needs testing!
+A funny toy for my microcontrollers class. May have some input latency, needs testing!
 ## Slow Installation (no script yet)
 ### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore them.
  0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems - you could try the Restoration steps below.
@@ -47,4 +47,4 @@ __Do not connect anything to Digital 0 or 1__, these are the UART communication 
 
  - [Picture of boxcat to give you strength](https://cdn.discordapp.com/attachments/395207473432363009/434162134486876181/ay.png)
  
- ### Connection Shield coming soon!
+ ### Connector Shield coming soon!
