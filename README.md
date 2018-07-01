@@ -6,7 +6,7 @@ A funny toy for my microcontrollers class. May have some latency, needs testing!
 
  1 - Use AVRDUDES to program the 328p with the [BotoesUART.hex](https://github.com/lucasgcb/UnoStick/blob/master/328p/BotoesUART/BotoesUART/Release/BotoesUART.hex) file. 
 
-The command usually looks like this; and you may retrieve a more accurate depiction of it for your environment by activating Verbose mode on the Arduino platform while uploading a sketch:
+The command usually looks like this; you may retrieve a more accurate depiction of it for your environment by having activated Verbose mode on the Arduino platform and then uploading a sketch.
 >avrdude.exe `"-CC:\Program Files (x86)\Arduino\hardware\tools\avr/etc/avrdude.conf" -v -patmega328p -carduino -PCOM3 -b115200 -D -Uflash:w:"$(ProjectDir)Release\BotoesUART.hex":i`
 
  2 - Enable DFU mode on your Arduino.
