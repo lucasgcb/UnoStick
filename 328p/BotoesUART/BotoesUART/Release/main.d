@@ -17,10 +17,10 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  ../../../libs/avr_gpio.c ../../../libs/avr_gpio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ../../../libs/avr_gpio.h .././bits.h .././uart.h \
+ ../../../libs/avr_gpio.h ../../../libs/bits.h .././uart.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././uart.c ../../../libs/bits.h
+ .././uart.c .././layout.h .././layout.c
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -62,7 +62,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../../../libs/avr_gpio.h:
 
-.././bits.h:
+../../../libs/bits.h:
 
 .././uart.h:
 
@@ -72,4 +72,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././uart.c:
 
-../../../libs/bits.h:
+.././layout.h:
+
+.././layout.c:

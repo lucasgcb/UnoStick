@@ -1,5 +1,4 @@
-Keyboard.d Keyboard.o: .././Keyboard.c .././bits.h \
- ../../../libs/UART/uart.h \
+main.d main.o: .././main.c .././bits.h ../../../libs/UART/uart.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
@@ -124,7 +123,8 @@ Keyboard.d Keyboard.o: .././Keyboard.c .././bits.h \
  ../src/Board/Joystick.h ../src/LUFA/LUFA/Drivers/Board/LEDs.h \
  ../src/Board/LEDs.h ../src/LUFA/LUFA/Drivers/Board/Buttons.h \
  ../src/Board/Buttons.h ../src/LUFA/LUFA/Platform/Platform.h \
- ../src/LUFA/LUFA/Platform/../Common/Common.h
+ ../src/LUFA/LUFA/Platform/../Common/Common.h .././detalhesHID.h \
+ .././eventosUSB.h
 
 .././bits.h:
 
@@ -393,3 +393,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../src/LUFA/LUFA/Platform/Platform.h:
 
 ../src/LUFA/LUFA/Platform/../Common/Common.h:
+
+.././detalhesHID.h:
+
+.././eventosUSB.h:

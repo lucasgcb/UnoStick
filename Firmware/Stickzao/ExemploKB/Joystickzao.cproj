@@ -314,16 +314,10 @@
     <Compile Include="Board\BDriver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Board\Buttons.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Board\Joystick.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Board\LDriver.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Board\LEDs.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Descriptors.c">
@@ -333,9 +327,6 @@
       <SubType>compile</SubType>
     </None>
     <None Include="doxyfile">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Keyboard.txt">
       <SubType>compile</SubType>
     </None>
     <None Include="src\LUFA\LUFA\Drivers\USB\Core\EndpointStream.h">
@@ -386,7 +377,13 @@
     <None Include="Descriptors.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="Keyboard.c">
+    <Compile Include="detalhesHID.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="eventosUSB.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
     <None Include="Joystick.h">

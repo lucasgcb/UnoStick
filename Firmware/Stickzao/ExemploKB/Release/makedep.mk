@@ -4,7 +4,7 @@
 
 Descriptors.c
 
-Keyboard.c
+main.c
 
 src\LUFA\LUFA\Drivers\USB\Class\Common\HIDParser.c
 

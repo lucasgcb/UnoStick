@@ -20,8 +20,6 @@ Discarded input sections
                 0x00000000       0x12 main.o
  .text.UART_putchar
                 0x00000000        0xa main.o
- .text.clearBuffer
-                0x00000000       0x12 main.o
  .data.uart_str
                 0x00000000        0xe main.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -295,11 +293,11 @@ END GROUP
  .text.checkForChange
                 0x0000014a       0x26 main.o
                 0x0000014a                checkForChange
- .text.init     0x00000170       0x1a main.o
+ .text.init     0x00000170       0x2c main.o
                 0x00000170                init
  .text.startup.main
-                0x0000018a       0x4a main.o
-                0x0000018a                main
+                0x0000019c       0x38 main.o
+                0x0000019c                main
                 0x000001d4                . = ALIGN (0x2)
  *(.fini9)
  .fini9         0x000001d4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)

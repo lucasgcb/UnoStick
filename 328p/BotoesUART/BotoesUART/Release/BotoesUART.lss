@@ -86,7 +86,7 @@ Disassembly of section .text:
   94:	a2 30       	cpi	r26, 0x02	; 2
   96:	b2 07       	cpc	r27, r18
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
-  9a:	0e 94 c5 00 	call	0x18a	; 0x18a <main>
+  9a:	0e 94 ce 00 	call	0x19c	; 0x19c <main>
   9e:	0c 94 ea 00 	jmp	0x1d4	; 0x1d4 <_exit>
 
 000000a2 <__bad_interrupt>:
@@ -191,55 +191,55 @@ Disassembly of section .text:
  16e:	08 95       	ret
 
 00000170 <init>:
- 170:	8f ef       	ldi	r24, 0xFF	; 255
- 172:	88 b9       	out	0x08, r24	; 8
- 174:	8b b9       	out	0x0b, r24	; 11
- 176:	87 b1       	in	r24, 0x07	; 7
- 178:	8f 63       	ori	r24, 0x3F	; 63
- 17a:	87 b9       	out	0x07, r24	; 7
- 17c:	8a b1       	in	r24, 0x0a	; 10
- 17e:	8c 6f       	ori	r24, 0xFC	; 252
- 180:	8a b9       	out	0x0a, r24	; 10
- 182:	0e 94 95 00 	call	0x12a	; 0x12a <initUart>
- 186:	78 94       	sei
- 188:	08 95       	ret
+ 170:	2f ef       	ldi	r18, 0xFF	; 255
+ 172:	83 ed       	ldi	r24, 0xD3	; 211
+ 174:	90 e3       	ldi	r25, 0x30	; 48
+ 176:	21 50       	subi	r18, 0x01	; 1
+ 178:	80 40       	sbci	r24, 0x00	; 0
+ 17a:	90 40       	sbci	r25, 0x00	; 0
+ 17c:	e1 f7       	brne	.-8      	; 0x176 <init+0x6>
+ 17e:	00 c0       	rjmp	.+0      	; 0x180 <init+0x10>
+ 180:	00 00       	nop
+ 182:	8f ef       	ldi	r24, 0xFF	; 255
+ 184:	88 b9       	out	0x08, r24	; 8
+ 186:	8b b9       	out	0x0b, r24	; 11
+ 188:	87 b1       	in	r24, 0x07	; 7
+ 18a:	8f 63       	ori	r24, 0x3F	; 63
+ 18c:	87 b9       	out	0x07, r24	; 7
+ 18e:	8a b1       	in	r24, 0x0a	; 10
+ 190:	8c 6f       	ori	r24, 0xFC	; 252
+ 192:	8a b9       	out	0x0a, r24	; 10
+ 194:	0e 94 95 00 	call	0x12a	; 0x12a <initUart>
+ 198:	78 94       	sei
+ 19a:	08 95       	ret
 
-0000018a <main>:
- 18a:	2f ef       	ldi	r18, 0xFF	; 255
- 18c:	83 ed       	ldi	r24, 0xD3	; 211
- 18e:	90 e3       	ldi	r25, 0x30	; 48
- 190:	21 50       	subi	r18, 0x01	; 1
- 192:	80 40       	sbci	r24, 0x00	; 0
- 194:	90 40       	sbci	r25, 0x00	; 0
- 196:	e1 f7       	brne	.-8      	; 0x190 <main+0x6>
- 198:	00 c0       	rjmp	.+0      	; 0x19a <main+0x10>
- 19a:	00 00       	nop
+0000019c <main>:
  19c:	0e 94 b8 00 	call	0x170	; 0x170 <init>
  1a0:	d0 e0       	ldi	r29, 0x00	; 0
  1a2:	c0 e0       	ldi	r28, 0x00	; 0
  1a4:	cf 33       	cpi	r28, 0x3F	; 63
- 1a6:	21 f4       	brne	.+8      	; 0x1b0 <main+0x26>
+ 1a6:	21 f4       	brne	.+8      	; 0x1b0 <main+0x14>
  1a8:	dc 3f       	cpi	r29, 0xFC	; 252
- 1aa:	11 f4       	brne	.+4      	; 0x1b0 <main+0x26>
+ 1aa:	11 f4       	brne	.+4      	; 0x1b0 <main+0x14>
  1ac:	2d 98       	cbi	0x05, 5	; 5
- 1ae:	01 c0       	rjmp	.+2      	; 0x1b2 <main+0x28>
+ 1ae:	01 c0       	rjmp	.+2      	; 0x1b2 <main+0x16>
  1b0:	2d 9a       	sbi	0x05, 5	; 5
  1b2:	6d 2f       	mov	r22, r29
  1b4:	8c 2f       	mov	r24, r28
  1b6:	0e 94 a5 00 	call	0x14a	; 0x14a <checkForChange>
  1ba:	88 23       	and	r24, r24
- 1bc:	31 f0       	breq	.+12     	; 0x1ca <main+0x40>
+ 1bc:	31 f0       	breq	.+12     	; 0x1ca <main+0x2e>
  1be:	c6 b1       	in	r28, 0x06	; 6
  1c0:	cf 73       	andi	r28, 0x3F	; 63
  1c2:	d9 b1       	in	r29, 0x09	; 9
  1c4:	dc 7f       	andi	r29, 0xFC	; 252
  1c6:	2a 98       	cbi	0x05, 2	; 5
  1c8:	2d 98       	cbi	0x05, 5	; 5
- 1ca:	25 e3       	ldi	r18, 0x35	; 53
- 1cc:	2a 95       	dec	r18
- 1ce:	f1 f7       	brne	.-4      	; 0x1cc <main+0x42>
+ 1ca:	85 e3       	ldi	r24, 0x35	; 53
+ 1cc:	8a 95       	dec	r24
+ 1ce:	f1 f7       	brne	.-4      	; 0x1cc <main+0x30>
  1d0:	00 00       	nop
- 1d2:	e8 cf       	rjmp	.-48     	; 0x1a4 <main+0x1a>
+ 1d2:	e8 cf       	rjmp	.-48     	; 0x1a4 <main+0x8>
 
 000001d4 <_exit>:
  1d4:	f8 94       	cli

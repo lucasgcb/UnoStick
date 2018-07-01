@@ -55,7 +55,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Descriptors.c \
-../Keyboard.c \
+../main.c \
 ../src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.c \
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.c \
 ../src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.c \
@@ -100,7 +100,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 Descriptors.o \
-Keyboard.o \
+main.o \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.o \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o \
 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o \
@@ -138,7 +138,7 @@ src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
 
 OBJS_AS_ARGS +=  \
 Descriptors.o \
-Keyboard.o \
+main.o \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.o \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.o \
 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.o \
@@ -176,7 +176,7 @@ src/LUFA/LUFA/Drivers/USB/Core/USBTask.o
 
 C_DEPS +=  \
 Descriptors.d \
-Keyboard.d \
+main.d \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.d \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.d \
 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.d \
@@ -214,7 +214,7 @@ src/LUFA/LUFA/Drivers/USB/Core/USBTask.d
 
 C_DEPS_AS_ARGS +=  \
 Descriptors.d \
-Keyboard.d \
+main.d \
 src/LUFA/LUFA/Drivers/USB/Class/Common/HIDParser.d \
 src/LUFA/LUFA/Drivers/USB/Class/Device/AudioClassDevice.d \
 src/LUFA/LUFA/Drivers/USB/Class/Device/CDCClassDevice.d \
