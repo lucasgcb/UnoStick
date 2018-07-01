@@ -16,7 +16,7 @@ The command usually looks like this; and you may retrieve a more accurate depict
 
  3 - Acquire Microchip's [FLIP](http://www.microchip.com/Developmenttools/ProductDetails/FLIP) , or dfu-programmer for erasing and programming the ATmega16U2
 
- 4 - With your DFU programmer, Erase and Flash the ATmega16U2 with [Joystickzao.hex](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Stickzao/ExemploKB/Release/Joystickzao.hex)
+ 4 - With your DFU programmer, Erase the memory and then Flash the ATmega16U2 with [Joystickzao.hex](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Stickzao/ExemploKB/Release/Joystickzao.hex)
 
  5 - Power Cycle the whole thing by unplugging, waiting, and replugging the USB cable.
 
@@ -31,7 +31,7 @@ __Do not connect anything to Digital 0 or 1__, these are the UART communication 
 
  1 - Enable DFU mode on your Arduino. This should also disable the controller.
 
- 2 - Use the DFU programmer to flash `Arduino-usbserial-uno.hex` onto the ATmega16U2. You may also find this file in your Arduino IDE `/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial` folder. [I've added it to the Firmware folder of this repository for convenience](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Arduino-usbserial-uno.hex).
+ 2 - Use the DFU programmer to erase the memory and then flash `Arduino-usbserial-uno.hex` onto the ATmega16U2. You may also find this file in your Arduino IDE `/hardware/arduino/avr/firmwares/atmegaxxu2/arduino-usbserial` folder. [I've added it to the Firmware folder of this repository for convenience](https://github.com/lucasgcb/UnoStick/blob/master/Firmware/Arduino-usbserial-uno.hex).
 
  3 - Power Cycle the whole thing by unplugging, waiting, and replugging the USB cable.
 
