@@ -2,8 +2,9 @@
 
 This project is intended to turn your Arduino UNO3 into a Joystick/Arcade Stick peripheral using the Arduino's USB.
 
-Buttons (8 inputs) and stick (4 inputs) positions are read from the Analog and Digital Ports by the ATmega328P. 
-USB Driver communication is done by the ATmega16u2, which receives information from the 328p through UART when there are inputs.
+- Buttons (8 inputs) and stick (4 inputs) positions are read from the Analog and Digital Ports by the ATmega328P. 
+- USB Driver communication is done by the ATmega16u2, 
+- ATmega16u2 receives information from the 328p through UART to figure out the current input.
 
 This works for anything that accepts generic HID Joysticks; PS3, PC, etc.
 
