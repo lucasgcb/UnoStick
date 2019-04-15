@@ -1,5 +1,14 @@
 # UnoStick / Stickzao
-A funny toy for my microcontrollers class. May have some input latency, needs testing!
+
+This project is intended to turn your Arduino UNO3 into a Joystick/Arcade Stick peripheral using the Arduino's USB.
+
+Buttons (8 inputs) and stick (4 inputs) positions are read from the Analog and Digital Ports by the ATmega328P. 
+USB Driver communication is done by the ATmega16u2, which receives information from the 328p through UART when there are inputs.
+
+This works for anything that accepts generic HID Joysticks; PS3, PC, etc.
+
+As I've made this as a project for my microcontrollers class, and it may have some input latency; benchmarking still needs to be done.
+
 ## Slow Installation (no script yet)
 ### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore them.
  0 - Plug the Board. Ensure the serial programmer is installed by uploading a random Sketch; if this fails you have other problems - you could try the Restoration steps below.
