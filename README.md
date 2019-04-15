@@ -8,7 +8,8 @@ This project is intended to turn your Arduino UNO3 into a Joystick/Arcade Stick 
 
 This works for anything that accepts generic HID Joysticks; PS3, PC, etc.
 
-As I've made this as a project for my microcontrollers class, and it may have some input latency, benchmarking still needs to be done to ensure this isn't going to get you hit by cross-ups when you freaking blocked that.
+As I've made this as a project for my microcontrollers class, it may have some input latency. 
+Benchmarking still needs to be done to ensure this isn't going to get you hit by cross-ups when you freaking blocked that.
 
 ## Slow Installation (no script yet)
 ### Notice: These steps will not-permanently disable your Arduino programming funcionalities. Read on for a walkthrough on how to restore them.
